@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f9f9fb;}body{overscroll-behavior:y none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary-fixed-variant": "#414944", "tertiary-container": "#6d7570", "inverse-surface": "#2f3133", "on-error-container": "#93000a", "on-primary-fixed-variant": "#324c3d", "primary-fixed": "#cbead4", "secondary-fixed-dim": "#ffb59f", "secondary": "#9c4328", "error-container": "#ffdad6", "surface-dim": "#d9dadc", "on-primary-container": "#effff2", "on-surface": "#1a1c1e", "secondary-container": "#ff8f6e", "on-background": "#1a1c1e", "surface-container-highest": "#e2e2e5", "on-error": "#ffffff", "on-secondary-fixed-variant": "#7d2c13", "on-tertiary-container": "#f4fcf6", "on-primary": "#ffffff", "inverse-primary": "#b0ceb9", "on-secondary": "#ffffff", "on-secondary-container": "#76270e", "outline": "#727973", "surface-container-lowest": "#ffffff", "primary-container": "#5e7a68", "surface-bright": "#f9f9fb", "inverse-on-surface": "#f0f0f3", "error": "#ba1a1a", "secondary-fixed": "#ffdbd1", "tertiary-fixed": "#dce4df", "on-tertiary-fixed": "#161d1a", "surface-container-high": "#e8e8ea", "surface-container-low": "#f3f3f6", "primary-fixed-dim": "#b0ceb9", "on-surface-variant": "#424843", "surface": "#f9f9fb", "on-primary-fixed": "#052013", "primary": "#466150", "background": "#f9f9fb", "surface-variant": "#e2e2e5", "tertiary": "#555c58", "on-tertiary": "#ffffff", "outline-variant": "#c2c8c1", "on-secondary-fixed": "#3a0a00", "tertiary-fixed-dim": "#c0c8c3", "surface-tint": "#496453", "surface-container": "#eeeef0" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-lg": "1.5rem", "space-md": "1rem", "margin": "1.25rem", "space-xl": "2rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xs": "0.5rem", "margin-desktop": "2rem", "space-sm": "0.75rem", "space-2xs": "0.25rem", "space-2xl": "3rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Inter"] }, fontSize: { "headline-lg": ["1.5rem", { lineHeight: "1.875rem", letterSpacing: "-0.01em", fontWeight: "600" }], "body-md": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0", fontWeight: "400" }], "body-sm": ["0.75rem", { lineHeight: "1.125rem", letterSpacing: "0.01em", fontWeight: "400" }], "headline-sm": ["1.125rem", { lineHeight: "1.5rem", letterSpacing: "-0.005em", fontWeight: "500" }], "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.04em", fontWeight: "600" }], "headline-xl": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-xl-mobile": ["1.75rem", { lineHeight: "2.125rem", letterSpacing: "-0.015em", fontWeight: "600" }], "body-lg": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0", fontWeight: "400" }], "label-md": ["0.8125rem", { lineHeight: "1rem", letterSpacing: "0.02em", fontWeight: "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_12px_rgba(70,97,80,0.06)]"><div class="h-16 px-margin flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-2xs min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-2xs flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high/60 transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span></button><img alt="The Casa Basics Emblem" class="h-7 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1X73iWtV_EK5ts4GNrKVrLbl6x86Hr1ZaOMRw9zqOImzLkKUXxUr9SmN8UVh2eONmm42TNlg4l5ogbDznNUOrd_Rsys24QQl6kp62u2pbn5N81_3s7WStnosfDz0QV12R9_GLcBlSRaHK28rv5JpzX5hxrQaizfD2Y1TGvx_FShoCh5-pSejnp95nZ9cE5I5rCfnh8WEqDLw-l8JtUAzvBkuOhsiZiiAaLMLcZN_1gp"/><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate pl-space-2xs">Product Detail</h1></div><div class="flex items-center gap-space-2xs flex-shrink-0"><button aria-label="Share or options" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors"><span class="material-symbols-outlined text-[22px]">share</span></button><button aria-label="Account Profile" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(0,0,0,0.08)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC1R3GpMeYQlYYk5jcY3_mLxLWXxvdPg7FSDdhBk-DGv9tKFcBWBjmK9uJcmtUhTYcihb2qXKYPpXLs29FA-mItuOBVjIvpHlIHYlBJkXjNYNPgTBuExVWCsWiPErRulVUmZ-WMB6LV4iscHxAUXG96U-1eyS3ZZpixRYcpxH-gcqO8AlCx86rPxpo5YsGaTYHmQHARIHX1Go00d-7RgMo9GEKfGeJp42e5fszpTE"/></button></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-safe"><div class="flex flex-col w-full pb-32">
+<!-- Top Gallery Section -->
+<section class="relative w-full px-margin pt-space-xs">
+<!-- Main Display Frame -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low shadow-sm">
+<!-- Image Slots -->
+<img alt="Nordic Enamelled Cast Iron Dutch Oven hero view" class="w-full h-full object-cover transition-opacity duration-300" data-alt="Premium Nordic sage green cast iron Dutch oven with sleek brushed gold brass knob resting elegantly on a warm oak butcher block in a sunlit Scandinavian minimalist kitchen with linen tea towels and white subway tiles. Natural morning light, soft organic shadows, commercial editorial boutique aesthetic." id="main-product-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvRB6y_fM8gTI4ehGJsubC5kcs_X86MRWpNdduZus0Uwe5S-fe1QyXmRNdwvC_KsU4n8A7PcDBMMMJdMc1CjTshizabJkjNKkax4RRQRrcqHyO59y2Hlf0ipwxtxl8ylasOx11dreYWTpcv-EbAwx82g0BuKcmzjhxzEwo2JCWwm09vjEJxgkIKtZQ5fwdAcRJEgUs81Uh8Fq4lTd1jJZPbilerv_tm1bHjgixO0g"/>
+<!-- Badge Badges Overlay -->
+<div class="absolute top-space-sm left-space-sm flex flex-col gap-space-2xs pointer-events-none">
+<span class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">award_star</span>
+          Best Seller #1
+        </span>
+<span class="inline-flex items-center px-space-xs py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-wider shadow-sm">
+          Save 25%
+        </span>
+</div>
+<!-- Quick Favorite Toggle -->
+<button class="absolute top-space-sm right-space-sm w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm active:scale-90 transition-transform" id="hero-fav-btn">
+<span class="material-symbols-outlined text-[20px] transition-colors" id="hero-fav-icon">favorite_border</span>
+</button>
+<!-- Carousel Progress Dot Pill -->
+<div class="absolute bottom-space-sm left-1/2 -translate-x-1/2 px-space-xs py-1 rounded-full bg-inverse-surface/60 backdrop-blur-md flex items-center gap-1.5">
+<span class="thumb-dot w-2 h-2 rounded-full bg-surface-container-lowest transition-all"></span>
+<span class="thumb-dot w-1.5 h-1.5 rounded-full bg-surface-container-lowest/50 transition-all"></span>
+<span class="thumb-dot w-1.5 h-1.5 rounded-full bg-surface-container-lowest/50 transition-all"></span>
+<span class="thumb-dot w-1.5 h-1.5 rounded-full bg-surface-container-lowest/50 transition-all"></span>
+</div>
+</div>
+<!-- 4 Interactive Thumbnail Strip -->
+<div class="grid grid-cols-4 gap-space-xs mt-space-xs">
+<button aria-label="View front angle" class="gallery-thumb relative aspect-square rounded-lg overflow-hidden shadow-xs bg-surface-container-low transition-all scale-100 ring-2 ring-primary" data-img-prompt="Premium Nordic sage green cast iron Dutch oven with sleek brushed gold brass knob resting elegantly on a warm oak butcher block in a sunlit Scandinavian minimalist kitchen with linen tea towels and white subway tiles. Natural morning light, soft organic shadows, commercial editorial boutique aesthetic." data-index="0">
+<img alt="Front perspective" class="w-full h-full object-cover pointer-events-none" data-alt="Front angle perspective of sage green cast iron Dutch oven with heavy lid on, pristine matte finish and soft reflective highlights on brushed metal hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYPtFNZjul-t4NIY0vwaBUvOgwRNVP9dqaDAjCwBR1tLgKgRuloR_T_HJJt0G_oiI0IMK6Oy0Ah1fLqkqJCc9ytWlKMhqxVkJphIO9ILzqdyVLKUiBMFfcOsalJ50SHdbok8sho3PmMOe7XIIX2jgeWOZETwIFg2XwO4b3n-wDd3ib_9em_psxXVGxD8QKLv511PyY1Io1DQmy3TBmf9xZPB-JW4h4CzAbw6xcs64"/>
+</button>
+<button aria-label="View interior enamel and lid off" class="gallery-thumb relative aspect-square rounded-lg overflow-hidden shadow-xs bg-surface-container-low transition-all opacity-70 hover:opacity-100" data-img-prompt="Overhead angled view of the open Dutch oven revealing flawless cream glossy vitreous enamel interior, smooth cooking surface, with the heavy lid resting gently tilted aside on a light wooden countertop." data-index="1">
+<img alt="Enamel Interior" class="w-full h-full object-cover pointer-events-none" data-alt="Interior vitreous enamel glossy cream surface of Dutch oven with lid lying beside it showing textured self-basting condensation dots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE2jQVcXsh6r5NsmANmnnAYzkkQPpMTrW3G_EFslyhAhHnByqP22qwMmcc8W1vd1rhTKYmhRyksjOhKQM8qgKv23ctamtFHQFgfCRclXuUI08VqjHcgBjNlQKsjjHP79jWNacCYLaPOV3KFZp4aMkNx4l27HtCUBPbBDMoRyY8KtwUs2SMWODbSQb6mIZMGXDxlR2zQXLwN_q2rH_89KmChLAHai-TAIyROqD54fs"/>
+</button>
+<button aria-label="View Dutch oven in kitchen oven context" class="gallery-thumb relative aspect-square rounded-lg overflow-hidden shadow-xs bg-surface-container-low transition-all opacity-70 hover:opacity-100" data-img-prompt="Modern warm oven open door with the sage green cast iron Dutch oven resting on the wire rack inside, gentle glow of warm baking light illuminating artisanal crusty sourdough bread loaf." data-index="2">
+<img alt="In oven culinary setting" class="w-full h-full object-cover pointer-events-none" data-alt="Sage Dutch oven sliding out of modern stainless steel oven showing artisan sourdough loaf with steamy golden crust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9DpkpJm32LAj5cTxJ8Ld16p1rLgcwQepj5b8ZVNTBPNnyEZrxLPE3Oyo_dA_pvAK4dTG9pRHxttJ0i3K6Rsd_98QYwX7V7-7SjBw90v3A-M8omyOetS5yXKm96F8inDZac_T8BNwCmIYUB2XlHhNC3xxnvUYwA14aIBmahL1VUOg6JGLbUB_Q3m59w6Zr-Gcqsnq1ilPWTtmjSwKV77sS0rIOeKmYZrdAuPdfy04"/>
+</button>
+<button aria-label="View brass knob close-up" class="gallery-thumb relative aspect-square rounded-lg overflow-hidden shadow-xs bg-surface-container-low transition-all opacity-70 hover:opacity-100" data-img-prompt="Macro extreme close-up of ergonomic satin brushed brass knob embossed with subtle Casa Basics crest, displaying clean micro bevels and soft metallic reflection under soft natural studio lighting." data-index="3">
+<img alt="Brass handle macro detail" class="w-full h-full object-cover pointer-events-none" data-alt="Macro detail of brushed brass knob handle on Dutch oven lid displaying fine metal grain and micro branded etching." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkeuO5dXN6baFvvxxe0aUBu2-SAtAOOFCrrpLrMoNl1NxHf4lnKCRCc7nJci-sJZpTMGM9o3AMCtPGq7Lz8jibCNQTy0ibtCllu181y3N8Mm-iLgZiYgdRZ2B1mOyIbRPF0rZCNMMuc9xwXODXVTZAyz0baaSxI7v2GeAG1BrzLLqCdXRaBzFWTvqDNuGAtRywFE5rRvj-Lbhe56IW2_pYWPvUX-rnRRMAk-9cc3I"/>
+</button>
+</div>
+</section>
+<!-- Product Title & Social Proof -->
+<section class="px-margin pt-space-md">
+<div class="flex items-center gap-space-2xs text-secondary mb-1">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wide">Free Express Shipping &amp; 30-Day Home Trial</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-snug">
+      Nordic Enamelled Cast Iron Dutch Oven (5.5 Qt)
+    </h2>
+<!-- Ratings & Verification Bar -->
+<div class="flex items-center flex-wrap gap-x-space-sm gap-y-1 mt-space-2xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold ml-0.5">4.9</span>
+<a class="underline underline-offset-2 ml-1 hover:text-primary" href="#reviews-section">(512 reviews)</a>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+        98% Recommend
+      </span>
+</div>
+<!-- Pricing Unit -->
+<div class="flex items-baseline gap-space-xs mt-space-sm">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-semibold text-on-surface" id="active-price-tag">$89.00</span>
+<span class="font-body-lg text-body-lg text-tertiary line-through" id="active-orig-price">$119.00</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+        -$30 Today
+      </span>
+</div>
+</section>
+<!-- Color Choice Component -->
+<section class="px-margin pt-space-lg">
+<div class="flex justify-between items-center mb-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Colourway</span>
+<span class="font-label-md text-label-md text-primary font-semibold" id="selected-color-label">Sage Mist</span>
+</div>
+<div class="flex items-center gap-space-sm" id="color-selector">
+<!-- Sage Mist -->
+<button aria-label="Select Sage Mist" class="color-btn relative w-11 h-11 rounded-full bg-[#5E7A68] ring-2 ring-primary ring-offset-2 flex items-center justify-center transition-all shadow-xs" data-color-name="Sage Mist">
+<span class="material-symbols-outlined text-[18px] text-surface-container-lowest">check</span>
+</button>
+<!-- Warm Terracotta -->
+<button aria-label="Select Warm Terracotta" class="color-btn relative w-11 h-11 rounded-full bg-[#C86446] flex items-center justify-center transition-all shadow-xs" data-color-name="Warm Terracotta">
+<span class="material-symbols-outlined text-[18px] text-surface-container-lowest hidden">check</span>
+</button>
+<!-- Oatmeal Cream -->
+<button aria-label="Select Oatmeal Cream" class="color-btn relative w-11 h-11 rounded-full bg-[#ECE5D8] flex items-center justify-center transition-all shadow-xs" data-color-name="Oatmeal Cream">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-dim hidden">check</span>
+</button>
+<!-- Slate Charcoal -->
+<button aria-label="Select Slate Charcoal" class="color-btn relative w-11 h-11 rounded-full bg-[#3F4843] flex items-center justify-center transition-all shadow-xs" data-color-name="Slate Charcoal">
+<span class="material-symbols-outlined text-[18px] text-surface-container-lowest hidden">check</span>
+</button>
+</div>
+</section>
+<!-- Size Capacity Selector -->
+<section class="px-margin pt-space-md">
+<div class="flex justify-between items-center mb-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Volume &amp; Capacity</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Serves 4–6 People</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs" id="size-selector">
+<!-- 3.5 Qt -->
+<button class="size-btn flex flex-col items-center justify-center py-2.5 px-space-xs rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all" data-orig="95" data-price="69" data-size="3.5 Qt">
+<span class="font-label-md text-label-md font-semibold">3.5 Qt</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2–3 Servings</span>
+<span class="font-label-sm text-label-sm font-medium mt-1 text-tertiary">$69</span>
+</button>
+<!-- 5.5 Qt (Active) -->
+<button class="size-btn relative flex flex-col items-center justify-center py-2.5 px-space-xs rounded-xl bg-primary-fixed text-on-primary-fixed shadow-sm transition-all" data-orig="119" data-price="89" data-size="5.5 Qt">
+<span class="absolute -top-2 right-2 px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-sm text-[10px] uppercase font-bold">Standard</span>
+<span class="font-label-md text-label-md font-bold">5.5 Qt</span>
+<span class="font-body-sm text-body-sm text-on-primary-fixed-variant">4–6 Servings</span>
+<span class="font-label-sm text-label-sm font-bold mt-1 text-primary">$89</span>
+</button>
+<!-- 7.2 Qt -->
+<button class="size-btn flex flex-col items-center justify-center py-2.5 px-space-xs rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all" data-orig="149" data-price="115" data-size="7.2 Qt">
+<span class="font-label-md text-label-md font-semibold">7.2 Qt</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6–8+ Family</span>
+<span class="font-label-sm text-label-sm font-medium mt-1 text-tertiary">$115</span>
+</button>
+</div>
+</section>
+<!-- Key Material & Culinary Highlights Bento-Lite -->
+<section class="px-margin pt-space-lg">
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="material-symbols-outlined text-[24px] text-primary">shield</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Chip-Proof Vitreous</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Smooth micro-porous glaze resists cracking &amp; acid staining.</p>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="material-symbols-outlined text-[24px] text-primary">local_fire_department</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">500°F / 260°C Safe</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Oven, broil &amp; induction stovetop universal compatibility.</p>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="material-symbols-outlined text-[24px] text-primary">all_inclusive</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Heirloom Warranty</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Cast to endure generations, backed by full replacement.</p>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="material-symbols-outlined text-[24px] text-primary">eco</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">100% Non-Toxic</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Zero PTFE, PFOA, cadmium, or reactive heavy metals.</p>
+</div>
+</div>
+</section>
+<!-- Frequently Bought Together Bundle -->
+<section class="px-margin pt-space-xl">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-space-2xs text-secondary font-label-md text-label-md uppercase tracking-wider mb-space-2xs">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+        Curated Kitchen Set
+      </div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm">Frequently Paired Together</h3>
+<div class="flex items-center justify-between gap-space-2xs">
+<!-- Main Item Small -->
+<div class="flex-1 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden">
+<img alt="Dutch Oven miniature" class="w-full h-full object-cover" data-alt="Miniature icon of sage green Dutch oven pot on neutral surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDosSeAGg7Yz1zq1gnpTTXXBYZWUJNIaJ_v8IvyZzI_lSA4y-WOkrv9pkJ9jviicvM_Ws1iQLLyxtoImIgmRPga_Lno1uXum3T8sPyh7rnzPVgQhdD2Sl81qNYBgu_C8e7WETfZEPZQZrZQbaMxo4S5nBfsYGfZhAdPqNSQJ3mckIlPCbLqmrFezZuccaFd2Q_Us746i_t4xt-gZIBJmqVK3B25JIDuampfwrbJ9vA"/>
+</div>
+<span class="font-label-sm text-label-sm font-medium mt-1 truncate max-w-full text-on-surface">Dutch Oven</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$89</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary">tv_displays</span>
+<!-- Accessory 1 -->
+<div class="flex-1 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden">
+<img alt="Silicone trivet mat" class="w-full h-full object-cover" data-alt="Minimalist scalloped silicone heat mat trivet in terracotta clay shade on stone countertop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDqaGT9evo4XVRtEh-qyNMwOK_4VJjX2yGd4ejz4jo2WISMHiGTxrOvagLoyFXE6RvR7Almc8oBtA9Mbl744iF9qcrYC5KgXRVEkxFzX3vpho2oDPurCWX95ffKhhJD6GbLPxs2O_VZs0kyqr08_1XXTobIJveK6rK0z5Na4aQzYEdYuKeukANSgTVPv8NqbUyosEHQdGCiKCTITmupRNPNjbh-QVGQygl0NITJJU"/>
+</div>
+<span class="font-label-sm text-label-sm font-medium mt-1 truncate max-w-full text-on-surface">Silicone Trivet</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$14</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary">tv_displays</span>
+<!-- Accessory 2 -->
+<div class="flex-1 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden">
+<img alt="Cherry wood spoon paddle" class="w-full h-full object-cover" data-alt="Handcrafted solid cherrywood kitchen cooking spoon paddle with smooth ergonomic beveled edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY-Ic_3sA64R6RwHuXOskxksmEbTD6W2Z_2ULFSrLDjrf0ULrBXkVjLAlsTdpaLoppEkBOp3iAJyWxwyzK0vhMKaKJwKjhfMxCwJemVdkuxkV6oSMMuH_uIMEC2MbWwPBFjXyFu9U7ZoLltTvZZvlYe8u9g63VeCvZszBSVDTzntKLJznZ99IaYRP6PnRsvJj8Rcg3IrSGXTLXovDHcYq5S-I0DqNJ6PJhZe2CsUM"/>
+</div>
+<span class="font-label-sm text-label-sm font-medium mt-1 truncate max-w-full text-on-surface">Wood Paddle</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$18</span>
+</div>
+</div>
+<!-- Add Bundle CTA -->
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Bundle total:</div>
+<div class="font-label-md text-label-md text-on-surface font-bold text-[16px]">$109.00 <span class="text-secondary line-through font-normal text-body-sm ml-1">$121.00</span></div>
+</div>
+<button class="h-10 px-space-md rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold flex items-center gap-1 active:scale-95 transition-transform" id="add-bundle-btn">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+          Add 3 Items
+        </button>
+</div>
+</div>
+</section>
+<!-- Technical Specs & Care Accordions -->
+<section class="px-margin pt-space-xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Product Details</h3>
+<div class="space-y-space-xs">
+<!-- Accordion 1: Specs -->
+<div class="rounded-xl bg-surface-container-low overflow-hidden transition-all">
+<button aria-expanded="true" class="accordion-trigger w-full px-space-md py-space-sm flex items-center justify-between text-left text-on-surface font-label-md text-label-md font-semibold">
+<span>Specifications &amp; Dimensions</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 rotate-180">expand_more</span>
+</button>
+<div class="accordion-content px-space-md pb-space-md block">
+<div class="space-y-2 font-body-sm text-body-sm">
+<div class="flex justify-between py-1 text-on-surface-variant">
+<span>Overall Diameter</span>
+<span class="text-on-surface font-medium">10.5 in / 26.7 cm</span>
+</div>
+<div class="flex justify-between py-1 text-on-surface-variant">
+<span>Total Weight (with lid)</span>
+<span class="text-on-surface font-medium">11.8 lbs / 5.35 kg</span>
+</div>
+<div class="flex justify-between py-1 text-on-surface-variant">
+<span>Total Liquid Volume</span>
+<span class="text-on-surface font-medium">5.5 Qt / 5.2 Liters</span>
+</div>
+<div class="flex justify-between py-1 text-on-surface-variant">
+<span>Cooktop Suitability</span>
+<span class="text-on-surface font-medium">Induction, Gas, Electric, Glass</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion 2: Care -->
+<div class="rounded-xl bg-surface-container-low overflow-hidden transition-all">
+<button aria-expanded="false" class="accordion-trigger w-full px-space-md py-space-sm flex items-center justify-between text-left text-on-surface font-label-md text-label-md font-semibold">
+<span>Care &amp; Cleaning Instructions</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant space-y-2">
+<p>• Hand washing recommended with mild dish soap and warm water.</p>
+<p>• Avoid harsh steel wool or abrasive powders; use soft sponges or wood scrapers.</p>
+<p>• Allow cookware to cool down to room temperature before immersing in cold water to prevent thermal shock.</p>
+</div>
+</div>
+<!-- Accordion 3: Sustainability -->
+<div class="rounded-xl bg-surface-container-low overflow-hidden transition-all">
+<button aria-expanded="false" class="accordion-trigger w-full px-space-md py-space-sm flex items-center justify-between text-left text-on-surface font-label-md text-label-md font-semibold">
+<span>Heirloom Craft &amp; Sustainability</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant space-y-2">
+<p>Molded with 85% recycled iron content using zero-waste reusable sand casting molds. Packaged in 100% plastic-free, FSC-certified unbleached pulp cartons printed with soy ink.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Verified Customer Reviews Section -->
+<section class="px-margin pt-space-xl" id="reviews-section">
+<div class="flex items-end justify-between mb-space-sm">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Community Praise</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real experiences from domestic chefs</p>
+</div>
+<button class="font-label-md text-label-md text-primary font-semibold flex items-center gap-0.5">
+        Write Review
+        <span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<!-- Rating Breakdown Card -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-md">
+<div class="flex items-center gap-space-md">
+<div class="text-center min-w-[70px]">
+<div class="font-headline-xl text-[2rem] font-bold text-on-surface leading-none">4.9</div>
+<div class="flex justify-center text-secondary-container mt-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">512 ratings</span>
+</div>
+<!-- Progress Bars -->
+<div class="flex-1 space-y-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-3">5★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+<span class="w-6 text-right">92%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3">4★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 6%"></div>
+</div>
+<span class="w-6 text-right">6%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3">3★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 2%"></div>
+</div>
+<span class="w-6 text-right">2%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Review Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-xs">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-md">
+            EK
+          </div>
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Elinor K.</div>
+<div class="font-body-sm text-[11px] text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified_user</span>
+              Verified Purchaser • Sage Mist (5.5 Qt)
+            </div>
+</div>
+</div>
+<span class="font-body-sm text-[11px] text-tertiary">3 days ago</span>
+</div>
+<div class="flex text-secondary-container mb-1.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-1">Better thermal retention than my $400 French pot</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        The sourdough oven spring I achieved on my very first bake with this was astronomical. It seals condensation remarkably well, and cleaning was effortless after a slow-braised coq au vin.
+      </p>
+<!-- Customer photo thumbnail -->
+<div class="mt-space-xs flex gap-2">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden">
+<img alt="Customer baked sourdough photo" class="w-full h-full object-cover" data-alt="Customer kitchen photo showing crisp golden sourdough bread loaf placed beside the sage cast iron Dutch oven on marble bench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_0v0PuuELEyGPs17fXXvhOXbpLyIo92suG4iol-XxTo_9cFVgHOpRJtJsVcvgfbIFzUZ5_OpZxK-wQsw4didPCadoxn3bzlGZBrhWlJRA1DEbpi9DsXs9XqMffypVn9S6gg3273mF1fZ6pQV6z0KFIJOomDMgOg74wbFU1SLzf7wJZG86EjtZwQIo8nAbZMk71z9Aiz0OArmRqnBeGZi492_H1VEKNU4VOVxyhIE"/>
+</div>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-label-md">
+            MA
+          </div>
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Marcus A.</div>
+<div class="font-body-sm text-[11px] text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified_user</span>
+              Verified Purchaser • Warm Terracotta (5.5 Qt)
+            </div>
+</div>
+</div>
+<span class="font-body-sm text-[11px] text-tertiary">2 weeks ago</span>
+</div>
+<div class="flex text-secondary-container mb-1.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-1">Architectural design and heirloom quality</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        I never put it away inside a cupboard. It lives permanently on our induction cooktop as a piece of sculpture. Heavy, satisfying, and heats evenly.
+      </p>
+</div>
+</section>
+<!-- Sticky Bottom Interactive Conversion Bar -->
+<aside class="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-xl px-margin py-3 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] pb-safe">
+<div class="flex items-center gap-space-xs max-w-lg mx-auto">
+<!-- Tactile Stepped Stepper -->
+<div class="flex items-center h-12 rounded-lg bg-surface-container-high px-1 shadow-inner">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface active:scale-90 transition-transform" id="qty-minus">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="w-7 text-center font-label-md text-label-md font-bold text-on-surface select-none" id="qty-display">1</span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface active:scale-90 transition-transform" id="qty-plus">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<!-- Add to Cart (Standard Action) -->
+<button class="flex-1 h-12 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98] transition-all" id="add-to-cart-btn">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span id="cart-cta-text">Add to Cart • $89</span>
+</button>
+<!-- Instant Buy Now (Terracotta Highlight) -->
+<button class="h-12 px-space-md rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold active:scale-[0.98] transition-all whitespace-nowrap shadow-sm" id="buy-now-btn">
+        Buy Now
+      </button>
+</div>
+</aside>
+</div>
+<!-- Inline Interactive Micro-Script -->
+<script>
+  (function() {
+    let currentQty = 1;
+    let basePrice = 89;
+
+    // Elements
+    const mainImg = document.getElementById('main-product-img');
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+    const dots = document.querySelectorAll('.thumb-dot');
+    const colorBtns = document.querySelectorAll('.color-btn');
+    const colorLabel = document.getElementById('selected-color-label');
+    const sizeBtns = document.querySelectorAll('.size-btn');
+    const priceTag = document.getElementById('active-price-tag');
+    const origPriceTag = document.getElementById('active-orig-price');
+    const cartCtaText = document.getElementById('cart-cta-text');
+    const qtyDisplay = document.getElementById('qty-display');
+    const qtyMinus = document.getElementById('qty-minus');
+    const qtyPlus = document.getElementById('qty-plus');
+    const heroFavBtn = document.getElementById('hero-fav-btn');
+    const heroFavIcon = document.getElementById('hero-fav-icon');
+    const accordions = document.querySelectorAll('.accordion-trigger');
+    const addBundleBtn = document.getElementById('add-bundle-btn');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+
+    // Thumbnail Switcher
+    thumbs.forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => {
+        thumbs.forEach(t => {
+          t.classList.remove('ring-2', 'ring-primary', 'opacity-100');
+          t.classList.add('opacity-70');
+        });
+        thumb.classList.add('ring-2', 'ring-primary', 'opacity-100');
+        thumb.classList.remove('opacity-70');
+
+        dots.forEach((d, i) => {
+          if (i === idx) {
+            d.className = 'thumb-dot w-2 h-2 rounded-full bg-surface-container-lowest transition-all';
+          } else {
+            d.className = 'thumb-dot w-1.5 h-1.5 rounded-full bg-surface-container-lowest/50 transition-all';
+          }
+        });
+
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.setAttribute('data-alt', thumb.getAttribute('data-img-prompt'));
+          mainImg.style.opacity = '1';
+        }, 150);
+      });
+    });
+
+    // Color Swatches
+    colorBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        colorBtns.forEach(b => {
+          b.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+          const check = b.querySelector('.material-symbols-outlined');
+          if (check) check.classList.add('hidden');
+        });
+        btn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) icon.classList.remove('hidden');
+
+        const colorName = btn.getAttribute('data-color-name');
+        if (colorLabel) colorLabel.textContent = colorName;
+      });
+    });
+
+    // Size Switcher
+    sizeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeBtns.forEach(b => {
+          b.className = 'size-btn relative flex flex-col items-center justify-center py-2.5 px-space-xs rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all';
+          const innerPrice = b.querySelector('.font-label-sm');
+          if (innerPrice) innerPrice.className = 'font-label-sm text-label-sm font-medium mt-1 text-tertiary';
+        });
+
+        btn.className = 'size-btn relative flex flex-col items-center justify-center py-2.5 px-space-xs rounded-xl bg-primary-fixed text-on-primary-fixed shadow-sm transition-all';
+        const activeInnerPrice = btn.querySelector('.font-label-sm');
+        if (activeInnerPrice) activeInnerPrice.className = 'font-label-sm text-label-sm font-bold mt-1 text-primary';
+
+        basePrice = parseInt(btn.getAttribute('data-price'), 10);
+        const orig = btn.getAttribute('data-orig');
+
+        if (priceTag) priceTag.textContent = '$' + basePrice + '.00';
+        if (origPriceTag) origPriceTag.textContent = '$' + orig + '.00';
+
+        updateCartCta();
+      });
+    });
+
+    // Quantity Stepper
+    function updateCartCta() {
+      const total = basePrice * currentQty;
+      if (cartCtaText) {
+        cartCtaText.textContent = 'Add to Cart • $' + total;
+      }
+    }
+
+    if (qtyPlus) {
+      qtyPlus.addEventListener('click', () => {
+        if (currentQty < 9) {
+          currentQty++;
+          qtyDisplay.textContent = currentQty;
+          updateCartCta();
+        }
+      });
+    }
+
+    if (qtyMinus) {
+      qtyMinus.addEventListener('click', () => {
+        if (currentQty > 1) {
+          currentQty--;
+          qtyDisplay.textContent = currentQty;
+          updateCartCta();
+        }
+      });
+    }
+
+    // Wishlist Toggle
+    let favActive = false;
+    if (heroFavBtn) {
+      heroFavBtn.addEventListener('click', () => {
+        favActive = !favActive;
+        if (favActive) {
+          heroFavIcon.textContent = 'favorite';
+          heroFavIcon.classList.add('text-secondary');
+          heroFavIcon.style.fontVariationSettings = "'FILL' 1";
+        } else {
+          heroFavIcon.textContent = 'favorite_border';
+          heroFavIcon.classList.remove('text-secondary');
+          heroFavIcon.style.fontVariationSettings = "'FILL' 0";
+        }
+      });
+    }
+
+    // Accordions
+    accordions.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        const content = trigger.nextElementSibling;
+        const icon = trigger.querySelector('.material-symbols-outlined');
+
+        if (expanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.classList.add('hidden');
+          content.classList.remove('block');
+          if (icon) icon.classList.remove('rotate-180');
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.classList.remove('hidden');
+          content.classList.add('block');
+          if (icon) icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Interactive feedback toasts
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', () => {
+        const originalText = cartCtaText.textContent;
+        cartCtaText.textContent = 'Added to Cart ✓';
+        addToCartBtn.classList.add('bg-primary');
+        setTimeout(() => {
+          cartCtaText.textContent = originalText;
+          addToCartBtn.classList.remove('bg-primary');
+        }, 1600);
+      });
+    }
+
+    if (addBundleBtn) {
+      addBundleBtn.addEventListener('click', () => {
+        addBundleBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span> Bundle Added!';
+        addBundleBtn.classList.remove('bg-primary-fixed', 'text-on-primary-fixed');
+        addBundleBtn.classList.add('bg-primary', 'text-on-primary');
+        setTimeout(() => {
+          addBundleBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span> Add 3 Items';
+          addBundleBtn.classList.remove('bg-primary', 'text-on-primary');
+          addBundleBtn.classList.add('bg-primary-fixed', 'text-on-primary-fixed');
+        }, 1800);
+      });
+    }
+  })();
+</script></main></body></html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f9f9fb;}body{overscroll-behavior:y none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary-fixed-variant": "#414944", "tertiary-container": "#6d7570", "inverse-surface": "#2f3133", "on-error-container": "#93000a", "on-primary-fixed-variant": "#324c3d", "primary-fixed": "#cbead4", "secondary-fixed-dim": "#ffb59f", "secondary": "#9c4328", "error-container": "#ffdad6", "surface-dim": "#d9dadc", "on-primary-container": "#effff2", "on-surface": "#1a1c1e", "secondary-container": "#ff8f6e", "on-background": "#1a1c1e", "surface-container-highest": "#e2e2e5", "on-error": "#ffffff", "on-secondary-fixed-variant": "#7d2c13", "on-tertiary-container": "#f4fcf6", "on-primary": "#ffffff", "inverse-primary": "#b0ceb9", "on-secondary": "#ffffff", "on-secondary-container": "#76270e", "outline": "#727973", "surface-container-lowest": "#ffffff", "primary-container": "#5e7a68", "surface-bright": "#f9f9fb", "inverse-on-surface": "#f0f0f3", "error": "#ba1a1a", "secondary-fixed": "#ffdbd1", "tertiary-fixed": "#dce4df", "on-tertiary-fixed": "#161d1a", "surface-container-high": "#e8e8ea", "surface-container-low": "#f3f3f6", "primary-fixed-dim": "#b0ceb9", "on-surface-variant": "#424843", "surface": "#f9f9fb", "on-primary-fixed": "#052013", "primary": "#466150", "background": "#f9f9fb", "surface-variant": "#e2e2e5", "tertiary": "#555c58", "on-tertiary": "#ffffff", "outline-variant": "#c2c8c1", "on-secondary-fixed": "#3a0a00", "tertiary-fixed-dim": "#c0c8c3", "surface-tint": "#496453", "surface-container": "#eeeef0" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-lg": "1.5rem", "space-md": "1rem", "margin": "1.25rem", "space-xl": "2rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xs": "0.5rem", "margin-desktop": "2rem", "space-sm": "0.75rem", "space-2xs": "0.25rem", "space-2xl": "3rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Inter"] }, fontSize: { "headline-lg": ["1.5rem", { lineHeight: "1.875rem", letterSpacing: "-0.01em", fontWeight: "600" }], "body-md": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0", fontWeight: "400" }], "body-sm": ["0.75rem", { lineHeight: "1.125rem", letterSpacing: "0.01em", fontWeight: "400" }], "headline-sm": ["1.125rem", { lineHeight: "1.5rem", letterSpacing: "-0.005em", fontWeight: "500" }], "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.04em", fontWeight: "600" }], "headline-xl": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-xl-mobile": ["1.75rem", { lineHeight: "2.125rem", letterSpacing: "-0.015em", fontWeight: "600" }], "body-lg": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0", fontWeight: "400" }], "label-md": ["0.8125rem", { lineHeight: "1rem", letterSpacing: "0.02em", fontWeight: "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_12px_rgba(70,97,80,0.06)]"><div class="h-16 px-margin flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0 flex-1"><img alt="The Casa Basics Emblem" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1X73iWtV_EK5ts4GNrKVrLbl6x86Hr1ZaOMRw9zqOImzLkKUXxUr9SmN8UVh2eONmm42TNlg4l5ogbDznNUOrd_Rsys24QQl6kp62u2pbn5N81_3s7WStnosfDz0QV12R9_GLcBlSRaHK28rv5JpzX5hxrQaizfD2Y1TGvx_FShoCh5-pSejnp95nZ9cE5I5rCfnh8WEqDLw-l8JtUAzvBkuOhsiZiiAaLMLcZN_1gp"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">The Casa Basics</span><span class="font-label-sm text-label-sm text-primary tracking-wide uppercase truncate">Ai Kitchen Assistant</span></div></div><div class="flex items-center gap-space-2xs flex-shrink-0"><button aria-label="Search Products" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface"></span></button><button aria-label="Account Profile" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(0,0,0,0.08)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC1R3GpMeYQlYYk5jcY3_mLxLWXxvdPg7FSDdhBk-DGv9tKFcBWBjmK9uJcmtUhTYcihb2qXKYPpXLs29FA-mItuOBVjIvpHlIHYlBJkXjNYNPgTBuExVWCsWiPErRulVUmZ-WMB6LV4iscHxAUXG96U-1eyS3ZZpixRYcpxH-gcqO8AlCx86rPxpo5YsGaTYHmQHARIHX1Go00d-7RgMo9GEKfGeJp42e5fszpTE"/></button></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-28"><div class="flex flex-col w-full px-margin pb-6 gap-space-md">
+<!-- Mode Switcher Segmented Control -->
+<div class="w-full bg-surface-container rounded-xl p-1.5 flex items-center shadow-sm">
+<button class="flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs bg-surface-container-lowest text-primary shadow-sm" id="tab-chat-btn" onclick="switchMode('chat')">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>AI Recipe &amp; Matcher</span>
+</button>
+<button class="flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs text-on-surface-variant hover:text-on-surface" id="tab-bundle-btn" onclick="switchMode('bundle')">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+<span>Bundle Builder</span>
+</button>
+</div>
+<!-- TAB 1: AI Recipe & Utensil Matcher -->
+<div class="flex flex-col gap-space-md w-full" id="section-chat">
+<!-- Intro Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-2xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Casa Smart Helper</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">v2.4 Active</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Hi Maya! What are you planning to cook today? Tell me a dish, dietary preference, or your kitchen challenge!
+          </p>
+</div>
+</div>
+<!-- Quick prompts -->
+<div class="mt-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1.5">Inspiration Prompts</span>
+<div class="flex gap-space-2xs overflow-x-auto pb-1 no-scrollbar">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors active:scale-95 flex items-center gap-1 shadow-sm" onclick="handleQuickPrompt('Making Homemade Sourdough 🥖')">
+            Making Homemade Sourdough 🥖
+          </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors active:scale-95 flex items-center gap-1 shadow-sm" onclick="handleQuickPrompt('Authentic Thai Green Curry 🍛')">
+            Authentic Thai Green Curry 🍛
+          </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors active:scale-95 flex items-center gap-1 shadow-sm" onclick="handleQuickPrompt('Small Kitchen Organization 🗄️')">
+            Small Kitchen Organization 🗄️
+          </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors active:scale-95 flex items-center gap-1 shadow-sm" onclick="handleQuickPrompt('Host a 6-person Dinner 🍷')">
+            Host a 6-person Dinner 🍷
+          </button>
+</div>
+</div>
+</div>
+<!-- Chat Stream Conversation -->
+<div class="flex flex-col gap-space-md" id="chat-messages">
+<!-- User Query Demo -->
+<div class="flex justify-end">
+<div class="max-w-[85%] bg-primary text-on-primary rounded-xl rounded-tr-sm p-3.5 shadow-sm font-body-md text-body-md">
+          Making Homemade Sourdough 🥖. I have basic flour and a starter, what tools and techniques do I need?
+        </div>
+</div>
+<!-- AI Rich Response -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">oven_gen</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Artisan Sourdough Plan</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">AI Recipe Guide</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Great choice! Sourdough hinges on moisture control during the initial bake and tension during shaping. Here is your quick timeline:
+        </p>
+<!-- Recipe Steps Minimal Pill Grid -->
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Step 1: Autolyse</span>
+<span class="font-body-sm text-body-sm text-on-surface mt-0.5 font-medium">Rest flour &amp; water 45m</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Step 2: Coil Folds</span>
+<span class="font-body-sm text-body-sm text-on-surface mt-0.5 font-medium">4 turns every 30m</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Step 3: Proofing</span>
+<span class="font-body-sm text-body-sm text-on-surface mt-0.5 font-medium">Cold retard 12-16h</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Step 4: Steam Bake</span>
+<span class="font-body-sm text-body-sm text-on-surface mt-0.5 font-medium">20m lidded @ 230°C</span>
+</div>
+</div>
+<!-- Budget Level Toggle -->
+<div class="mt-space-xs bg-surface-container-high/60 p-2.5 rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Budget Tier:</span>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-primary text-on-primary" id="tier-essential" onclick="selectTier('essential')">
+              Essential ($49)
+            </button>
+<button class="px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-surface-container-lowest text-on-surface" id="tier-chef" onclick="selectTier('chef')">
+              Chef Grade ($119)
+            </button>
+</div>
+</div>
+<!-- Utensils recommendations -->
+<div class="mt-2 flex flex-col gap-2">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">skillet</span>
+            Required Kitchen Utensils (3 Items)
+          </span>
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-md overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Matte emerald enameled cast iron round dutch oven resting on an oat linen kitchen counter in morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaGYgXGf2eJJxdVp8QNRhIq-QjM-8uX_BCwMJupFpDN2ZaYy9kMNRD8wHK_acrNBSL_b9AlSBTkMmuH-vKAcSmVpibwrfw6qp8jWolwF2dkYbBMxVZh--20N0_j8zdTHUsHx6kSWGj3r1lQQF1xK_FyN53-C6Pvxb8z_CBtq0tlJ_GXclpL9X58UOQY0WwSeGevf6km3BE1ZytbWEAGY6unjVgrnZKWcsJdFH5Do0"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Enameled Dutch Oven (4.5 Qt)</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$68.00</span>
+</div>
+</div>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors text-label-sm font-label-sm active:scale-95 shadow-sm" onclick="showAddedToast('Dutch Oven')">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-md overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Beechwood handle stainless steel bench scraper with measurement markings beside fresh flour dusting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOlKTZ_A6akTYis-Ods48Vhrlm65PbFcXvMHGMlWPuNgHKx5s2UrMG4ODznAJZQwPaN-GLwhV_zaWBXwvSmHx5SizZwCtAP3I4yeiz7o6vGnyi7C1xAZXBjJbhuKXJj3GlHnfsiIRZ9LqcDQ-zVwxToqWcgA7xvc7g0K5Xp4Y47L05bl5kYyjHZRbK5jXIXE3akoVR9ER6j9N2jrSdgLA0jDlsSAzJyLLC1EQ-CSc"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Ergonomic Dough Scraper</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$14.00</span>
+</div>
+</div>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors text-label-sm font-label-sm active:scale-95 shadow-sm" onclick="showAddedToast('Dough Scraper')">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-md overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Traditional natural Indonesian rattan oval banneton proofing basket with pure unbleached linen liner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtgoPFOYRHmOY9pKyfLxffO6hDAYIAu8-6vLFXtlAWtJ9EcSrrO5RcDIK5JHhtRj7UGgi5Wj5cC-XoUudrkodr17O6SA6N9-XPLmQi87rSbHUv7LGDGxHFORmJKmPt6wfclrNzpHNC8rpuWFKyEqr07Oz0i00W5Q3sRL4lar04TCKbSijHeJ53W3tI24R7ra9K_auTWE5GrmXYXwCxDybAQF9sb81qnFvxLaMD-LI"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Banneton Proofing Basket</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$18.50</span>
+</div>
+</div>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors text-label-sm font-label-sm active:scale-95 shadow-sm" onclick="showAddedToast('Proofing Basket')">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+<div class="mt-1 flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Match score: <strong class="text-primary">98% Kitchen Compatibility</strong></span>
+<button class="font-label-sm text-label-sm text-secondary flex items-center gap-1 hover:underline" onclick="loadBundleToBuilder()">
+<span>Export to Bundle Builder</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Persistent AI Chat Input Field -->
+<div class="sticky bottom-20 z-20 bg-surface/90 backdrop-blur-md p-1 rounded-2xl shadow-lg">
+<form class="flex items-center gap-1.5 bg-surface-container-lowest rounded-xl p-1.5" id="chat-form" onsubmit="sendChatMessage(event)">
+<button aria-label="Microphone" class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" onclick="simulateVoice()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="mic-icon">mic</span>
+</button>
+<input class="flex-1 bg-transparent px-2 py-2 text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none min-w-0" id="chat-input" placeholder="Ask about ingredients, pans, setups..." type="text"/>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center transition-transform active:scale-95 hover:bg-primary-container shadow-sm" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<!-- TAB 2: Interactive Smart Bundle Builder -->
+<div class="hidden flex-col gap-space-md w-full" id="section-bundle">
+<!-- Header banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-2xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Build Custom Starter Kit</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">20% Bundle Perk</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Select presets or toggle kitchen essentials. Bundles with 3+ items unlock our chef-level automatic 20% discount.
+      </p>
+</div>
+<!-- Preset Starter Templates -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Kitchen Style Presets</span>
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5" id="preset-baker" onclick="applyPreset('baker')">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span>Beginner Baker Kit</span>
+</button>
+<button class="preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5" id="preset-curry" onclick="applyPreset('curry')">
+<span class="material-symbols-outlined text-[16px]">soup_kitchen</span>
+<span>Indian Spices &amp; Tadka Kit</span>
+</button>
+<button class="preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5" id="preset-minimalist" onclick="applyPreset('minimalist')">
+<span class="material-symbols-outlined text-[16px]">apartment</span>
+<span>Minimalist Apartment Kit</span>
+</button>
+<button class="preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5" id="preset-gourmet" onclick="applyPreset('gourmet')">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span>Master Chef Gourmet Kit</span>
+</button>
+</div>
+</div>
+<!-- Bundle Items Checklist -->
+<div class="flex flex-col gap-space-xs" id="items-list">
+<!-- Item 1: Heavy-gauge Fry Pan -->
+<div class="bundle-item bg-surface-container-lowest rounded-xl p-space-sm flex items-center justify-between gap-2 shadow-sm transition-all" data-id="1" data-price="45.00">
+<div class="flex items-center gap-space-xs min-w-0 flex-1">
+<input checked="" class="w-5 h-5 rounded accent-primary cursor-pointer flex-shrink-0" id="item-chk-1" onchange="updateBundleCalculations()" type="checkbox"/>
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Heavy-gauge multi-clad stainless steel 10-inch skillet resting on warm wooden prep surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY_7W3KC8e01swK_8bppbqgqLFsjwHi9ZeoyPnAVyaxon5h2IKGOAXGMJdY2pbg53aLYfbtocZ-fHNqkystBQ13eWQ6TNsscYkxpiZCduZ6HcTPD045Y4HdDNaRYveLgrANu_8sNRmeSvHNyrctuRsaiAMZR_eFkqwa9N5x_fcckzgh_AnwIl6pv1GqU3btB9RnAb7q122nLMTXovqsrkuI3dveDRsp8D-hyjVn28"/>
+</div>
+<div class="flex flex-col min-w-0">
+<label class="font-body-md text-body-md font-medium text-on-surface truncate cursor-pointer" for="item-chk-1">Heavy-gauge Fry Pan</label>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$45.00</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 gap-2 flex-shrink-0">
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(1, -1)" type="button">-</button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center" id="qty-1">1</span>
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(1, 1)" type="button">+</button>
+</div>
+</div>
+<!-- Item 2: Ergonomic Teak Spoon & Spatula -->
+<div class="bundle-item bg-surface-container-lowest rounded-xl p-space-sm flex items-center justify-between gap-2 shadow-sm transition-all" data-id="2" data-price="18.00">
+<div class="flex items-center gap-space-xs min-w-0 flex-1">
+<input checked="" class="w-5 h-5 rounded accent-primary cursor-pointer flex-shrink-0" id="item-chk-2" onchange="updateBundleCalculations()" type="checkbox"/>
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Artisanal hand-carved organic teak wood spoon and flat cooking spatula resting side-by-side on natural stone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuBHjAB-KcTotrUwncZXZ0LTeYmCX69djJ2RcAK6kov1I8N04--5Y6S6t3212k4nFelvyWEpjnm1WEBczcP3347FLVqj6szBr9z2OYiw-2sofDeMFOTgAahVjjCb8AOaXEiwYIukn7tfQq_YMxcUYuv32R7iTKIAVeXlkvHBbaZaqCxq3fGo2Z17AtYDUndYo1iZgIsSGZ8Xht2uuelyqa_xWGybwe4wdrwWVBazI"/>
+</div>
+<div class="flex flex-col min-w-0">
+<label class="font-body-md text-body-md font-medium text-on-surface truncate cursor-pointer" for="item-chk-2">Teak Spoon &amp; Spatula</label>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$18.00</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 gap-2 flex-shrink-0">
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(2, -1)" type="button">-</button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center" id="qty-2">1</span>
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(2, 1)" type="button">+</button>
+</div>
+</div>
+<!-- Item 3: 3-Piece Glass Storage Containers -->
+<div class="bundle-item bg-surface-container-lowest rounded-xl p-space-sm flex items-center justify-between gap-2 shadow-sm transition-all" data-id="3" data-price="24.00">
+<div class="flex items-center gap-space-xs min-w-0 flex-1">
+<input checked="" class="w-5 h-5 rounded accent-primary cursor-pointer flex-shrink-0" id="item-chk-3" onchange="updateBundleCalculations()" type="checkbox"/>
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Set of three stackable borosilicate glass storage food prep containers with bamboo silicone airtight lids" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXmuGeqkx0wizrsyawbu1JImRapUpFmozZK8x2nAq7gqi3L3IheXTqiPs4M4mL9QsNeS1bG1uJ242qzZvjPdFZlXf1rL74vL4kEZUHj_jO7xlGM5zRE2gr8i4RSu7BmhGwv_5UvGlwcqM-vhsoN7C2qTOBlLEg3-vei1z9EpsVogv1yn-PWWanRk0gxPKsQ6wv8Yrckc77n9KyXEYV-cfqsZkuuq4HvtrQALTcaNE"/>
+</div>
+<div class="flex flex-col min-w-0">
+<label class="font-body-md text-body-md font-medium text-on-surface truncate cursor-pointer" for="item-chk-3">3-Pc Glass Storage</label>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$24.00</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 gap-2 flex-shrink-0">
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(3, -1)" type="button">-</button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center" id="qty-3">1</span>
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(3, 1)" type="button">+</button>
+</div>
+</div>
+<!-- Item 4: Japanese Utility Knife -->
+<div class="bundle-item bg-surface-container-lowest rounded-xl p-space-sm flex items-center justify-between gap-2 shadow-sm transition-all" data-id="4" data-price="38.00">
+<div class="flex items-center gap-space-xs min-w-0 flex-1">
+<input class="w-5 h-5 rounded accent-primary cursor-pointer flex-shrink-0" id="item-chk-4" onchange="updateBundleCalculations()" type="checkbox"/>
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Japanese utility petty chef knife with damascus forged pattern and pakkawood octagonal handle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn8QAnurawBRxEB0mByTWzaNay9mbP0mvLQg-vdfIhxJVsVWh_fkgSQoTNS0aCsf_SAmLnAuZ7zW2XyfiDCEXQPGxWLmu-9-DhZvBh4SZSnISvDsr69hlF0v6faPEm55blHc2leJ99l7HRsG0zvk_ZjO2UTDBtDzJ16IttjGppD053oHDM9l65b-Ai6rQZzZ9Sof1WMDIBzU3bjI-XVv7-fdnUhaYn26IYFiGUtqY"/>
+</div>
+<div class="flex flex-col min-w-0">
+<label class="font-body-md text-body-md font-medium text-on-surface truncate cursor-pointer" for="item-chk-4">Japanese Utility Knife</label>
+<span class="font-body-sm text-body-sm text-primary font-semibold">$38.00</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 gap-2 flex-shrink-0">
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(4, -1)" type="button">-</button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center" id="qty-4">1</span>
+<button class="w-7 h-7 rounded bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-label-md active:scale-95 shadow-sm" onclick="modifyQty(4, 1)" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- Live Dynamic Price Calculator Summary Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-2.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Price Breakdown</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm" id="bundle-qualify-badge">
+          Bundle Promo Applied
+        </span>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Regular Subtotal</span>
+<span class="font-medium" id="price-subtotal">$87.00</span>
+</div>
+<div class="flex justify-between items-center font-body-sm text-body-sm text-secondary font-medium">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">loyalty</span>
+<span>Bundle Discount (20% off)</span>
+</span>
+<span id="price-discount">-$17.40</span>
+</div>
+<div class="flex justify-between items-center pt-2 mt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Live You Pay</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold leading-tight" id="price-total">$69.60</span>
+</div>
+<div class="text-right">
+<span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm" id="price-savings">
+              Saves $17.40!
+            </span>
+</div>
+</div>
+</div>
+<!-- Complete Bundle Button -->
+<button class="w-full mt-2 h-12 bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-md" id="add-bundle-btn" onclick="addCompleteBundle()">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span>Add Complete Bundle ($69.60)</span>
+</button>
+</div>
+</div>
+<!-- Toast Notification Feedback Banner -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 pointer-events-none opacity-0 translate-y-[-10px] w-11/12 max-w-sm" id="toast">
+<div class="bg-inverse-surface text-inverse-on-surface py-3 px-4 rounded-xl shadow-xl flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md font-medium truncate" id="toast-text">Added item to kitchen cart!</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">close</span>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switching State
+  function switchMode(mode) {
+    const chatBtn = document.getElementById('tab-chat-btn');
+    const bundleBtn = document.getElementById('tab-bundle-btn');
+    const chatSection = document.getElementById('section-chat');
+    const bundleSection = document.getElementById('section-bundle');
+
+    if (mode === 'chat') {
+      chatBtn.className = "flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs bg-surface-container-lowest text-primary shadow-sm";
+      bundleBtn.className = "flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs text-on-surface-variant hover:text-on-surface";
+      chatSection.classList.remove('hidden');
+      chatSection.classList.add('flex');
+      bundleSection.classList.add('hidden');
+      bundleSection.classList.remove('flex');
+    } else {
+      bundleBtn.className = "flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs bg-surface-container-lowest text-primary shadow-sm";
+      chatBtn.className = "flex-1 py-2 px-space-xs rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center justify-center gap-space-2xs text-on-surface-variant hover:text-on-surface";
+      bundleSection.classList.remove('hidden');
+      bundleSection.classList.add('flex');
+      chatSection.classList.add('hidden');
+      chatSection.classList.remove('flex');
+    }
+  }
+
+  // Toast System
+  function showAddedToast(name) {
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    toastText.textContent = `Added "${name}" to your cart!`;
+    toast.classList.remove('opacity-0', 'translate-y-[-10px]');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-[-10px]');
+    }, 2400);
+  }
+
+  // Chat Interactive Append
+  function handleQuickPrompt(text) {
+    const input = document.getElementById('chat-input');
+    input.value = text;
+    sendChatMessage();
+  }
+
+  function simulateVoice() {
+    const mic = document.getElementById('mic-icon');
+    mic.classList.add('text-secondary');
+    setTimeout(() => {
+      mic.classList.remove('text-secondary');
+      const input = document.getElementById('chat-input');
+      input.value = "Authentic Thai Green Curry 🍛";
+      sendChatMessage();
+    }, 900);
+  }
+
+  function sendChatMessage(e) {
+    if (e) e.preventDefault();
+    const input = document.getElementById('chat-input');
+    const query = input.value.trim();
+    if (!query) return;
+
+    const chatContainer = document.getElementById('chat-messages');
+
+    // Create user bubble
+    const userBubble = document.createElement('div');
+    userBubble.className = "flex justify-end";
+    userBubble.innerHTML = `<div class="max-w-[85%] bg-primary text-on-primary rounded-xl rounded-tr-sm p-3.5 shadow-sm font-body-md text-body-md">${query}</div>`;
+    chatContainer.appendChild(userBubble);
+
+    input.value = "";
+
+    // Simulated Smart Response
+    setTimeout(() => {
+      const responseCard = document.createElement('div');
+      responseCard.className = "flex flex-col gap-space-sm bg-surface-container-lowest rounded-xl p-space-md shadow-sm";
+      responseCard.innerHTML = `
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface">Recommended Setup</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Curated Gear</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Analyzed requirement for: <strong>"${query}"</strong>. To cook this authentically with optimal heat distribution, we recommend these tools:
+        </p>
+        <div class="p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">skillet</span>
+            <span class="font-body-md text-body-md font-medium text-on-surface">Heavy Tri-Ply Wok ($54.00)</span>
+          </div>
+          <button onclick="showAddedToast('Tri-Ply Wok')" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container text-label-sm font-label-sm">Add</button>
+        </div>
+      `;
+      chatContainer.appendChild(responseCard);
+      responseCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 600);
+  }
+
+  // Budget Tier Selector
+  function selectTier(tier) {
+    const essentialBtn = document.getElementById('tier-essential');
+    const chefBtn = document.getElementById('tier-chef');
+    if (tier === 'essential') {
+      essentialBtn.className = "px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-primary text-on-primary";
+      chefBtn.className = "px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-surface-container-lowest text-on-surface";
+      showAddedToast("Switched to Essential Kit ($49)");
+    } else {
+      chefBtn.className = "px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-primary text-on-primary";
+      essentialBtn.className = "px-2.5 py-1 rounded-md font-label-sm text-label-sm transition-all bg-surface-container-lowest text-on-surface";
+      showAddedToast("Upgraded to Chef Grade ($119)");
+    }
+  }
+
+  function loadBundleToBuilder() {
+    switchMode('bundle');
+    applyPreset('baker');
+  }
+
+  // Bundle Item Quantities
+  const quantities = { 1: 1, 2: 1, 3: 1, 4: 1 };
+
+  function modifyQty(id, delta) {
+    const newQty = quantities[id] + delta;
+    if (newQty >= 1 && newQty <= 10) {
+      quantities[id] = newQty;
+      document.getElementById(`qty-${id}`).textContent = newQty;
+      // Auto check item when incrementing
+      const chk = document.getElementById(`item-chk-${id}`);
+      if (!chk.checked && delta > 0) {
+        chk.checked = true;
+      }
+      updateBundleCalculations();
+    }
+  }
+
+  // Bundle Calculator Logic
+  function updateBundleCalculations() {
+    const items = [
+      { id: 1, price: 45.00 },
+      { id: 2, price: 18.00 },
+      { id: 3, price: 24.00 },
+      { id: 4, price: 38.00 }
+    ];
+
+    let subtotal = 0;
+    let selectedCount = 0;
+
+    items.forEach(item => {
+      const isChecked = document.getElementById(`item-chk-${item.id}`).checked;
+      if (isChecked) {
+        const qty = quantities[item.id];
+        subtotal += item.price * qty;
+        selectedCount += qty;
+      }
+    });
+
+    const isEligibleForDiscount = selectedCount >= 3;
+    const discountRate = isEligibleForDiscount ? 0.20 : 0.00;
+    const discount = subtotal * discountRate;
+    const total = subtotal - discount;
+
+    document.getElementById('price-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('price-discount').textContent = `-$${discount.toFixed(2)}`;
+    document.getElementById('price-total').textContent = `$${total.toFixed(2)}`;
+    document.getElementById('price-savings').textContent = isEligibleForDiscount
+      ? `Saves $${discount.toFixed(2)}!`
+      : `Add ${Math.max(0, 3 - selectedCount)} more for 20% off`;
+
+    const badge = document.getElementById('bundle-qualify-badge');
+    if (isEligibleForDiscount) {
+      badge.textContent = "20% Bundle Promo Applied";
+      badge.className = "px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm";
+    } else {
+      badge.textContent = "Promo Unlocks at 3 Items";
+      badge.className = "px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm";
+    }
+
+    const actionBtn = document.getElementById('add-bundle-btn');
+    actionBtn.innerHTML = `
+      <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+      <span>Add Complete Bundle ($${total.toFixed(2)})</span>
+    `;
+  }
+
+  // Bundle Presets
+  function applyPreset(preset) {
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.className = "preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5";
+    });
+    const currentBtn = document.getElementById(`preset-${preset}`);
+    if (currentBtn) {
+      currentBtn.className = "preset-btn whitespace-nowrap px-3 py-2 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1.5";
+    }
+
+    const chk1 = document.getElementById('item-chk-1');
+    const chk2 = document.getElementById('item-chk-2');
+    const chk3 = document.getElementById('item-chk-3');
+    const chk4 = document.getElementById('item-chk-4');
+
+    if (preset === 'baker') {
+      chk1.checked = true;
+      chk2.checked = true;
+      chk3.checked = true;
+      chk4.checked = false;
+    } else if (preset === 'curry') {
+      chk1.checked = true;
+      chk2.checked = true;
+      chk3.checked = false;
+      chk4.checked = true;
+    } else if (preset === 'minimalist') {
+      chk1.checked = true;
+      chk2.checked = true;
+      chk3.checked = false;
+      chk4.checked = false;
+    } else if (preset === 'gourmet') {
+      chk1.checked = true;
+      chk2.checked = true;
+      chk3.checked = true;
+      chk4.checked = true;
+    }
+    updateBundleCalculations();
+  }
+
+  function addCompleteBundle() {
+    showAddedToast("Custom Kitchen Starter Kit");
+  }
+
+  // Initialize calculations on DOM ready
+  updateBundleCalculations();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_24px_rgba(34,36,38,0.06)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-2xs w-14 h-14 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">roofing</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center gap-space-2xs w-14 h-14 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Browse</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-space-2xs w-14 h-14 rounded-xl transition-colors text-primary font-semibold" data-path="ai-kitchen-assistant" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Chef AI</span></a><a class="flex flex-col items-center justify-center gap-space-2xs w-14 h-14 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="font-label-sm text-label-sm">Saved</span></a><a class="relative flex flex-col items-center justify-center gap-space-2xs w-14 h-14 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="cart" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute -top-1.5 -right-2 px-1.5 py-0.2 min-w-[16px] h-4 rounded-full bg-secondary text-on-secondary font-label-sm text-[10px] leading-none flex items-center justify-center font-bold shadow-[0_2px_4px_rgba(156,67,40,0.3)]">3</span></div><span class="font-label-sm text-label-sm">Bag</span></a></div></nav></body></html>
