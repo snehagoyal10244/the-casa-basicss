@@ -5,6 +5,7 @@ import QuantityStepper from '../components/common/QuantityStepper';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
+import api from '../services/api';
 
 export default function CartCheckoutPage() {
   const navigate = useNavigate();
@@ -25,11 +26,11 @@ export default function CartCheckoutPage() {
     restoreSampleItems,
     applyPromo,
     removePromo,
-    executeOrder,
+    completeBackendOrder,
     latestOrder
   } = useCart();
 
-  const { user, updateAddress } = useAuth();
+  const { user, token, updateAddress } = useAuth();
   const { showToast } = useToast();
 
   const [step, setStep] = useState(1); // 1: Cart | 2: Checkout | 3: Complete
@@ -61,12 +62,76 @@ export default function CartCheckoutPage() {
     showToast("Shipping address updated");
   };
 
-  const handlePlaceOrder = () => {
-    const order = executeOrder({
-      address: addressForm
-    });
-    setStep(3);
-    showToast(`Order ${order.orderId} placed successfully! 🎉`);
+  const handlePlaceOrder = async () => {
+    if (!token) {
+      showToast('Please log in before placing your order.');
+      return;
+    }
+
+    if (!cartItems.length) {
+      showToast('Your cart is empty.');
+      return;
+    }
+
+    if (paymentMethod !== 'cod') {
+      showToast('Please select Cash on Delivery for this test order.');
+      return;
+    }
+
+    let backendCartStarted = false;
+    let orderSaved = false;
+
+    try {
+      const existingCart = await api.getCart(token);
+
+      if (existingCart.cart?.items?.length) {
+        showToast('Your saved backend cart is not empty. Please clear it before testing.');
+        return;
+      }
+
+      backendCartStarted = true;
+
+      for (const item of cartItems) {
+        await api.addCartItem(token, {
+          productId: item.id,
+          qty: item.qty,
+          color: item.color || 'Standard',
+          size: item.size || 'Standard',
+          price: item.price
+        });
+      }
+
+      if (promoCode) {
+        await api.applyBackendPromo(token, promoCode);
+      }
+
+      const result = await api.placeOrder(token, {
+        shippingAddress: {
+          name: addressForm.name,
+          street: addressForm.street,
+          city: addressForm.city,
+          phone: addressForm.phone,
+          country: addressForm.country || 'USA'
+        },
+        deliveryMethod,
+        paymentMethod: 'cod'
+      });
+
+      orderSaved = true;
+      const order = completeBackendOrder(result.order);
+      setStep(3);
+      showToast(`Order ${order.orderId} saved successfully!`);
+    } catch (error) {
+      if (backendCartStarted && !orderSaved) {
+        try {
+          await api.clearBackendCart(token);
+        } catch {
+          // Keep the original order error.
+        }
+      }
+
+      showToast(error.message || 'Unable to place your order. Please try again.');
+    }
   };
 
   return (

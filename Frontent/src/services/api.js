@@ -1,4 +1,4 @@
-﻿const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 const api = {
   async request(endpoint, options = {}) {
@@ -38,9 +38,43 @@ const api = {
 
   getProfile: (token) =>
     api.request('/auth/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+
+  getCart: (token) =>
+    api.request('/cart', {
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+  addCartItem: (token, item) =>
+    api.request('/cart', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(item),
+    }),
+
+  applyBackendPromo: (token, code) =>
+    api.request('/cart/promo', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ code }),
+    }),
+
+  removeBackendPromo: (token) =>
+    api.request('/cart/promo', {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+  clearBackendCart: (token) =>
+    api.request('/cart', {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+
+  placeOrder: (token, orderData) =>
+    api.request('/orders', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(orderData),
     }),
 };
 

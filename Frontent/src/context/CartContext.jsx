@@ -200,6 +200,34 @@ export function CartProvider({ children }) {
     return newOrder;
   };
 
+  const completeBackendOrder = (serverOrder) => {
+    const newOrder = {
+      orderId: serverOrder.orderNumber,
+      date: new Date(serverOrder.createdAt || Date.now()).toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      }),
+      items: serverOrder.items.map((item) => ({
+        ...item,
+        id: item.legacyId || item.product,
+        image: item.image,
+        qty: item.qty
+      })),
+      subtotal: serverOrder.subtotal,
+      discountAmount: serverOrder.discountAmount,
+      shippingCost: serverOrder.shippingCost,
+      taxAmount: serverOrder.taxAmount,
+      totalAmount: serverOrder.totalAmount,
+      deliveryMethod: serverOrder.deliveryMethod,
+      paymentMethod: serverOrder.paymentMethod,
+      address: serverOrder.shippingAddress,
+      status: serverOrder.status,
+      courier: serverOrder.courier
+    };
+
+    setLatestOrder(newOrder);
+    setCartItems([]);
+    return newOrder;
+  };
   return (
     <CartContext.Provider value={{
       cartItems,
@@ -225,7 +253,8 @@ export function CartProvider({ children }) {
       restoreSampleItems,
       applyPromo,
       removePromo,
-      executeOrder
+      executeOrder,
+      completeBackendOrder
     }}>
       {children}
     </CartContext.Provider>
