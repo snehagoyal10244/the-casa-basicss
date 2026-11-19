@@ -21,7 +21,8 @@ export default function AuthDrawer() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-
+console.log("Auth Drawer State:", isAuthDrawerOpen);
+  
   if (!isAuthDrawerOpen) return null;
 
   const handleSubmit = async (e) => {
